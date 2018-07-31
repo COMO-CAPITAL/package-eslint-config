@@ -1,6 +1,6 @@
 module.exports = {
   extends: [
-    'airbnb-base',
+    'airbnb',
     'plugin:unicorn/recommended',
     'prettier'
   ],
@@ -11,6 +11,10 @@ module.exports = {
     'node',
     'prettier'
   ],
+  env: {
+    'browser': true,
+    'node': true
+  },
   rules: {
     'prettier/prettier': ['error', {
       singleQuote: true,
@@ -40,13 +44,21 @@ module.exports = {
     'promise/prefer-await-to-then': 'error',
     'promise/valid-params': 'error',
 
+    'react/jsx-indent': 0,
+    'react/jsx-one-expression-per-line': 'off',
+    'react/jsx-filename-extension': [1, { 'extensions': ['.js', '.jsx'] }],
+
     'node/exports-style': ['error', 'module.exports'],
     'node/no-deprecated-api': 'error',
     'node/process-exit-as-throw': 'error',
 
     'import/default': 'error',
+    'import/no-unresolved': 0,
+    'import/no-mutable-exports': 0,
+    'import/no-extraneous-dependencies': ['error', {'devDependencies': true}],
 
     // Disable formatting rules conflicting with Prettier
-    'unicorn/number-literal-case': 'off'
+    'unicorn/number-literal-case': 'off',
+    'unicorn/filename-case': ['error', {'case': 'pascalCase'}]
   }
 }
